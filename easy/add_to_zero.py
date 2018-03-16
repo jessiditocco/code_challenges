@@ -18,14 +18,18 @@ def add_to_zero(nums):
         True
     """
 
-
+    # making a set in python takes o(n) time
     nums = set(nums)
-
+    # looping through numbers in the list takes o(n) time
     for num in nums:
+        # searching for an item in a set takes constant time o(1)
+        # python considers -0 == 0
         if (-num) in nums:
             return True
     
     return False
+
+# This function will run in o(n) constant time
 
 
 if __name__ == "__main__":
