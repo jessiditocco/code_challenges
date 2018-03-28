@@ -62,3 +62,23 @@ if __name__ == "__main__":
     import doctest
     if doctest.testmod().failed == 0:
         print "All tests passed!! wahooo!"
+
+################### Practice using the collections library ######################
+# import collections
+
+# dq = collections.deque()
+
+# dq.append("hi")
+# print dq
+# dq.append("hackbright")
+# print dq
+# dq.pop()
+
+# dq.append("hellow")
+# print dq
+
+# dq.popleft()
+# print dq
+
+## Collections is used so that you dont have to implement your own stack or queue
+## Collections lib uses doubly linked lists and you can treat it as either  a stack or a queue
