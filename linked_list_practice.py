@@ -17,17 +17,17 @@
 # berry_node.next = cherry_node
 
 
-# class LinkedList(object):
-#     """LinkedList"""
+class LinkedList(object):
+    """LinkedList"""
 
-#     def __init__(self):
-#         self.head = None
-#         # We can add a tail so that appending will be O(1)
-#         self.head = None
+    def __init__(self):
+        self.head = None
+        # We can add a tail so that appending will be O(1)
+        self.tail = None
 
 
 
-############################## Traversing a linked list ########################
+############################## Traversing, Searching, Appending, Removing a linked list ########################
 
 class LinkedList(object):
     # Traversing the list. Lets assume we have already built the list
@@ -65,8 +65,43 @@ class LinkedList(object):
         if self.head is None:
             self.head = new_node
 
-        if self.head is not None:
-            # Did the list start as empty?
+        if self.tail is not None:
             self.tail.next = new_node
-
+        
         self.tail = new_node
+
+
+
+############################## Removing and Item from a Linked List ########################
+
+class LinkedList(object):
+    def remove(self, value):
+        # If removing the head, you need to point the second item (if any) the new .head
+        # If the head is not None and the head's data is equal to the value
+        if self.head is not None and self.head.data == value:
+            # Set the head equal to the next of the head
+            self.head = self.head.next
+            # Now, if the head is None (the list is empty now)
+            if self.head is None:
+                # Set the tail equal to none and return out of the function
+                self.tail = None
+            return 
+
+        # Removing something other than the head
+        # Set the current to the head
+        current = self.head
+        # Keep traversing until the currents next is None
+        while current.next is not None:
+            # If the current's next data is equal to the value we are looking for, set the current.next to
+            # the currents, next, next
+            if current.next.data == value:
+                current.next = current.next.next
+                # If you're removing the last item and the current.next is None, update the tail
+                if current.next is None:
+                    # If removing the last item, update .tail
+                    self.tail = current
+                return 
+            # Havent found the value yet, keep traversing 
+            else:
+                current = current.next
+                
