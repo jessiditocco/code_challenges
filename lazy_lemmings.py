@@ -25,6 +25,12 @@ def lazy_lemmings(num_holes, cafes):
     return longest_distance
 
 
+    # The runtime for this solution is O(n^2) because we are scanning each cafe for each hole
+
+    # A better solution would let us find the nearest hole for a cafe quickly. We can use binary search?
+    
+
+
 if __name__ == "__main__":
     import doctest
     if doctest.testmod().failed == 0:

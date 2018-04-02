@@ -93,6 +93,9 @@ def find_largest_smaller_than_bisect(nums, xnumber):
     # Fail-Optimization: Since our list is sorted, if the first number is bigger
     # a smaller number isn't in our list
 
+    # Since our list is sorted, if the first number is larger than our number, return None
+
+
     if nums[0] > xnumber:
         return None
         
