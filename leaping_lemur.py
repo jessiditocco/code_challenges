@@ -42,7 +42,7 @@ def  lemur(branches):
 
         num_jumps += 1
 
-    return num_jumps 
+    return num_jumps
 
 
 
