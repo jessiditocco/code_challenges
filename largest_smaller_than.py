@@ -75,6 +75,7 @@ def find_largest_smaller_than_bisect(nums, xnumber):
     True
     """
 
+    # Fail fast... if the first number in the list is greater than the xnum, return None
     # O(logn) solution
     # Since we have a list, we can search it quickly using binary search
     # Python has a library, called "bisect" that can do this
@@ -102,12 +103,6 @@ def find_largest_smaller_than_bisect(nums, xnumber):
     insertion_point = bisect_left(nums, xnumber)
 
     return insertion_point - 1
-
-    if nums[insertion_point] == xnumber:
-        return insertion_point - 1
-
-    else:
-        return insertion_point
 
 
 
