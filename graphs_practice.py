@@ -110,8 +110,27 @@ class FriendGraph(object):
                     print "added to queue {}".format(friend)
 
         return False
-
 # This is a breadth first search... it would be a (depth-first search if we used a stack)
+
+
+    def are_connected_recursive(self, person1, person2, seen=None):
+        """Are two people friends? Recursive depth-first search."""
+
+        if not seen:
+            seen = set()
+
+        if person1 is person2:
+            return True
+
+        # Keep track of what we have visited
+        seen.add(person1)
+
+        for person in person1.adjacent - seen:
+            if self.are_connected_recursive(person, person2, seen):
+                return True
+
+        return False
+
 
 
 if __name__ == "__main__":
