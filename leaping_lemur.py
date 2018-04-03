@@ -30,20 +30,45 @@ def  lemur(branches):
     # increment our jumps by 1
    
 
-    current_index = 0
+    # current_index = 0
+    # num_jumps = 0
+
+
+    # while current_index < len(branches) - 1:
+    #     current_index += 2
+
+    #     if current_index >= len(branches) or branches[current_index] == 1:
+    #         current_index -= 1
+
+    #     num_jumps += 1
+
+    # return num_jumps
+
+
+    # loop through each branch index, while we are on the index at length of the
+    # total list length - 1
+    # keep track of the branch that we are on (index)
+    # keep track of the number of jumps we have done
+
+    # start at index 0
+    # add 2 to the index:
+    # if the list at the new index is 1, 
+    # decrement 1
+    # also, if the list at that index doesnt exist(because its out of range), decrement 1
+    # increment jumps by 1 each time we loop
+
     num_jumps = 0
 
+    current_branch = 0
 
-    while current_index < len(branches) - 1:
-        current_index += 2
-
-        if current_index >= len(branches) or branches[current_index] == 1:
-            current_index -= 1
+    while current_branch < (len(branches) - 1):
+        current_branch += 2
+        if current_branch > (len(branches) - 1) or branches[current_branch] == 1:
+            current_branch -= 1
 
         num_jumps += 1
 
     return num_jumps
-
 
 
 if __name__ == "__main__":
