@@ -132,7 +132,6 @@ class FriendGraph(object):
         return False
 
 
-
 if __name__ == "__main__":
     # If we run this file directly..
     # Add sample friends
