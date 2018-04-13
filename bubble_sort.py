@@ -27,3 +27,24 @@ def shorter_bubble_sort(lst):
             if lst[j] > lst[j + 1]:
                 # Pair out-of-order, swap them
                 lst[j + 1], lst[j] = lst[j], lst[j + 1]
+
+
+
+################ Stopping bubble Sort Once list is Sorted ########################
+
+def best_bubble_sort(lst):
+    """Shorter and fast-win bubble sort"""
+
+    for i in range(len(lst) - 1):
+        # keep track of whether we made a swap
+
+        made_swap = False
+        for j in range(len(lst) - 1 - i):
+            if lst[j] > lst[j + 1]:
+                lst[j], lst[j + 1] = lst[j + 1], lst[j]
+                made_swap = True
+
+            if not made_swap:
+                # if no swap was made, the list is already Sorted
+                break
+
