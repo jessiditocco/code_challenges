@@ -1,0 +1,29 @@
+################################  Bubbling Up #################################
+
+def bubble_up(lst):
+    """Bubble the highest number to the end"""
+
+    # loop through every number in the length of the list - 1
+    # for each of these numbers though, we have to check it against every
+    # number in the list so we have to have two nested for loops
+
+
+    for i in range(len(lst) - 1):
+
+        for j in range(len(lst) - 1):
+            if lst[j] > lst[j + 1]:
+                lst[j + 1], lst[j] = lst[j], lst[j + 1]
+
+################################  Optimizing #################################
+
+def shorter_bubble_sort(lst):
+    """Shorter bubble sort"""
+
+    for i in range(len(lst) - 1):
+        # don't re-check already-sorted
+        # We will subtract i to reduce the number of spots that the
+        # inner loop has to go
+        for j in range(len(L) - 1 - i): 
+            if lst[j] > lst[j + 1]:
+                # Pair out-of-order, swap them
+                lst[j + 1], lst[j] = lst[j], lst[j + 1]
