@@ -35,6 +35,27 @@ def reverse_linked_list(head):
     '321'
     """
 
+    # create a temporary variable for reversing-- previous-- equal to None
+    # the current is equal to the head
+    # while the head is not none:
+    # we will create a new node that has the data equal to current and next equal 
+    # to temp next
+    # we will update temp_next with the node that we just made
+    # we will update the current with the next node
+    # return the temp next
+
+    node_for_reversing = None
+    current = head
+
+    while current:
+        new_node = Node(current.data, node_for_reversing)
+        node_for_reversing = new_node
+        current = current.next
+
+    return node_for_reversing
+        
+
+
     # We need to make a temporary variable that will start with None
     # This will be our new tails next (none) and we will update it with each previous
     # Node as we loop through
@@ -43,15 +64,7 @@ def reverse_linked_list(head):
     # The next, being the previous node that we were on
     # Then we will increment our head n to move forward
 
-    node_for_reversing = None
 
-    n = head
-
-    while n:
-        node_for_reversing = Node(n.data, node_for_reversing)
-        n = n.next
-
-    return node_for_reversing
 
 
 if __name__ == "__main__":
