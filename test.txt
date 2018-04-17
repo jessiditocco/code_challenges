@@ -1,0 +1,19 @@
+We have a neat function that adds two numbers together, using complex math.
+
+First, lets import it:
+
+    >>> from testing import adder
+
+Then, lets try it out:
+
+    >>> adder(1, 1)
+    2
+
+See? It works!
+
+What if we used a negative number?
+    
+    >>> adder(1, 1)
+    0
+
+    
