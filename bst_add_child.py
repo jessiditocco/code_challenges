@@ -10,21 +10,67 @@ class Node(object):
 
 
     def insert(self, new_data):
-        """Insert new node with `new_data` to BST tree rooted here."""
+        """Insert new node with `new_data` to BST tree rooted here.
+        >>> t.insert(0)
 
-        # check the new_data against the current data
-            # if the new data is bigger, go right
-            # if new data is smaller, go left
+        >>> t.left.left.left.data == 0
+        True
 
-        current = self.data
+        >>> t.left.left.right is None
+        True
 
-        while current.left or current.right is not None:
-            if new_data > current.data:
-                current = self.right
-            elif new_data < current.data:
-                current = self.left
+        >>> t.insert(9)
 
+        >>> t.right.right.right.data == 9
+        True
 
+        >>> t.right.right.left is None
+        True
+
+        >>> t.insert(6)
+
+        >>> t.right.left.right.data == 6
+        True
+
+        >>> t.right.left.left is None
+        True
+        """
+
+        # # check the new_data against the current data
+        #     # if the new data is bigger, go right
+        #     # if new data is smaller, go left
+
+        # current = self
+
+        # while current.left is not None or current.right is not None:
+        #     if new_data < current.data:
+        #         current = current.left
+        #     elif new_data > current.data:
+        #         current = current.right
+
+        # if new_data < current.data:
+        #     current.left = Node(new_data)
+        # else:
+        #     current.right = Node(new_data)
+
+        # we can also solve this using recursion
+        # we should head left or right depending on whether the new
+        # data is greater than or less than the node we are on
+        # once we go one direction: say we go right, if the current.right
+        # is none, we want to add the node there
+        # if the current right is not none, we will call the function recursively
+
+        if new_data >= self.data:
+            if self.right is None:
+                self.right = Node(new_data)
+            else:
+                self.right.insert(new_data)
+
+        else:
+            if self.left is None:
+                self.left = Node(new_data)
+            else:
+                self.left.insert(new_data)
 
 
 
@@ -44,13 +90,13 @@ class Node(object):
 # node7.right = node8 
 # node7.left = node5
 
-if __name__ == "__main__":
-    t = Node(4, 
-        Node(2, Node(1), Node(3)),
-        Node(7, Node(5), Node(8))
-        )
-    insert(self, 0)
 
-    if t.left.left.left == 0:
-        print "Passed!"
-    
+t = Node(4, 
+    Node(2, Node(1), Node(3)),
+    Node(7, Node(5), Node(8))
+    )
+   
+if __name__ == "__main__":
+    import doctest
+    if doctest.testmod().failed == 0:
+        print "All tests passed!!!"
