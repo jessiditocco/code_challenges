@@ -17,36 +17,63 @@ def binary_search(val):
         >>> max([binary_search(i) for i in range(1, 101)])
         7
     """
-    # ensure that the value is between 1-100
-    assert 0 < val < 101, "Val must be between 1-100"
 
-    # initialize right, left bounds and num guesses outside of loop
-    # o(1) for initializing a var
-    left_bound = 0
-    right_bound = 101
+    assert 0 < val < 101, "Value must be between 1 and 100"
+
     num_guesses = 0
 
-    # initiate a while loop
-    
+    lower_bound = 0
+    upper_bound = 101
+
+    # start the while loop
     while True:
-        # increment the number of guesses by 1
+        # Increment number of guesses by 1
         num_guesses += 1
-        # find the midpoint of the right and left bounds
-        midpoint = (right_bound + left_bound) / 2
-        # if the midpoint is equal to the value, return number of guesses 
+
+        midpoint = (lower_bound + upper_bound) / 2
+
         if midpoint == val:
             return num_guesses
-        # if not, adjust the right and left bound accordingly
         elif midpoint > val:
-            right_bound = midpoint
-        else:
-            left_bound = midpoint
+            upper_bound = midpoint
+        elif midpoint < val:
+            lower_bound = midpoint
 
 
-  # o(log n) runtime because for each time through the loop we reduce our
-  # range that the number could be in by half
+
+
+
+  #   # ensure that the value is between 1-100
+  #   assert 0 < val < 101, "Val must be between 1-100"
+
+  #   # initialize right, left bounds and num guesses outside of loop
+  #   # o(1) for initializing a var
+  #   left_bound = 0
+  #   right_bound = 101
+  #   num_guesses = 0
+
+  #   # initiate a while loop
+    
+  #   while True:
+  #       # increment the number of guesses by 1
+  #       num_guesses += 1
+  #       # find the midpoint of the right and left bounds
+  #       midpoint = (right_bound + left_bound) / 2
+  #       # if the midpoint is equal to the value, return number of guesses 
+  #       if midpoint == val:
+  #           return num_guesses
+  #       # if not, adjust the right and left bound accordingly
+  #       elif midpoint > val:
+  #           right_bound = midpoint
+  #       else:
+  #           left_bound = midpoint
+
+
+  # # o(log n) runtime because for each time through the loop we reduce our
+  # # range that the number could be in by half
 
 
 if __name__ == "__main__":
     import doctest
-    doctest.testmod()
+    if doctest.testmod().failed == 0:
+        print 'All tests passed!'
