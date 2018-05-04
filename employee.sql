@@ -40,3 +40,10 @@ INSERT INTO checking (acct, amt) VALUES ('ABC123', -100);
 INSERT INTO savings (acct, amt) VALUES ('ABC123', 100);
 
 COMMIT;
+
+
+
+CREATE TABLE employees(
+    id SERIAL PRIMARY KEY,
+    fname VARCHAR(30) NOT NULL, 
+    lname VARCHAR(30) NOT NULL)
